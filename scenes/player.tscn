@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://d06osvch4w5sc"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_inu4q"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_arym7"]
+load_path = "res://.godot/imported/me.png-64f0a3567abb0048b88c5ec4a0d14abf.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8c28"]
+atlas = SubResource("CompressedTexture2D_arym7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1r5dx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8c28")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w433e"]
+size = Vector2(20, 9)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_inu4q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_1r5dx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_w433e")
